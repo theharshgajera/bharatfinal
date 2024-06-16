@@ -48,6 +48,8 @@ urlpatterns = [
     path('renew_expiry_date/<int:employee_id>/', renew_expiry_date, name='renew_expiry_date'),
     path('admin_download_zip/', admin_download_zip, name='admin_download_zip'),  # Add this line
     path('get_expiration_counts/<int:year>/', get_expiration_counts, name='get_expiration_counts'),
-
+    path('change_employee_status/', change_employee_status, name='change_employee_status'),
+    path('employee_status_management/', employee_status_management, name='employee_status_management'),
+]
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
