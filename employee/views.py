@@ -323,14 +323,13 @@ def admin_home(request):
 
     current_year = datetime.now().year
     expiration_counts = [
-        EmployeeDetail.objects.filter(expiry_date__year=current_year, expiry_date__month=month).count()
-        for month in range(1, 12+1)
+        EmployeeDetail.objects.annotate(month=ExtractMonth('expiry_date')).filter(month=month).count()
+        for month in range(1, 13)
     ]
 
     context = {
         'employee_counts': employee_counts,
         'expiration_counts': expiration_counts,
-        'current_year': current_year,
     }
     return render(request, 'admin_home.html', context)
 
