@@ -50,6 +50,6 @@ urlpatterns = [
     path('get_expiration_counts/<int:year>/', get_expiration_counts, name='get_expiration_counts'),
     path('change_employee_status/', change_employee_status, name='change_employee_status'),
     path('employee_status_management/', employee_status_management, name='employee_status_management'),
-]
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
