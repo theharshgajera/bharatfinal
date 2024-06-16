@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect, get_object_or_404
 from .models import *
 from django.contrib.auth import login,logout,authenticate
 from datetime import date
+from django.db.models.functions import ExtractMonth
+
 from django.contrib.auth.decorators import login_required
 from .forms import DocumentUploadForm,SignedContractUploadForm
 from django.http import HttpResponse
