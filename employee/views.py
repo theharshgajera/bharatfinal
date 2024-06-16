@@ -813,3 +813,20 @@ def superuser_verification_list(request):
     employees = EmployeeDetail.objects.filter(status='SUPERUSER_VERIFICATION_PENDING')
     return render(request, 'superuser_verification_list.html', {'employees': employees})
 
+
+def change_employee_status(request):
+    if request.method == 'POST':
+        employee_id = request.POST.get('employee_id')
+        new_status = request.POST.get('status')
+        employee = get_object_or_404(EmployeeDetail, id=employee_id)
+        employee.status = new_status
+        employee.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False})
+
+def employee_status_management(request):
+    employees = EmployeeDetail.objects.all()
+    context = {
+        'employees': employees
+    }
+    return render(request, 'employee_status_management.html', context)
