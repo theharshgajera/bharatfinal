@@ -15,6 +15,7 @@ import zipfile
 import io
 from datetime import datetime
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from .forms import *
 # Create your views here.
