@@ -430,7 +430,7 @@ def edit_profile(request, pid):
         employee.blood_group = blood_group
         employee.gender = gender
         employee.coverage= coverage
-        dob=dob
+        employee.dob=dob
 
         if jdate:
             employee.joiningdate = jdate
