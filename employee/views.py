@@ -814,15 +814,26 @@ def superuser_verification_list(request):
     return render(request, 'superuser_verification_list.html', {'employees': employees})
 
 
+@csrf_exempt
 def change_employee_status(request):
     if request.method == 'POST':
-        employee_id = request.POST.get('employee_id')
-        new_status = request.POST.get('status')
-        employee = get_object_or_404(EmployeeDetail, id=employee_id)
-        employee.status = new_status
-        employee.save()
-        return JsonResponse({'success': True})
-    return JsonResponse({'success': False})
+        try:
+            data = json.loads(request.body)
+            employee_id = data.get('employee_id')
+            new_status = data.get('status')
+
+            if not employee_id or not new_status:
+                return JsonResponse({'success': False, 'error': 'Missing employee_id or status'})
+
+            employee = get_object_or_404(EmployeeDetail, id=employee_id)
+            employee.status = new_status
+            employee.save()
+            return JsonResponse({'success': True})
+        except Exception as e:
+            print(e)  # This will help to see the actual error in the console
+            return JsonResponse({'success': False, 'error': str(e)})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
 
 def employee_status_management(request):
     employees = EmployeeDetail.objects.all()
