@@ -85,43 +85,8 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Coverage</label>
-                            <select name="coverage" class="form-control" readonly>
-                                <option value="AHMEDABAD" {% if employee.coverage == 'AHMEDABAD' %}selected{% endif %}>AHMEDABAD</option>
-                                <option value="AMRELI" {% if employee.coverage == 'AMRELI' %}selected{% endif %}>AMRELI</option>
-                                <option value="ANAND" {% if employee.coverage == 'ANAND' %}selected{% endif %}>ANAND</option>
-                                <option value="ARVALLI" {% if employee.coverage == 'ARVALLI' %}selected{% endif %}>ARVALLI</option>
-                                <option value="BANASKANTHA" {% if employee.coverage == 'BANASKANTHA' %}selected{% endif %}>BANASKANTHA</option>
-                                <option value="BHARUCH" {% if employee.coverage == 'BHARUCH' %}selected{% endif %}>BHARUCH</option>
-                                <option value="BHAVNAGAR" {% if employee.coverage == 'BHAVNAGAR' %}selected{% endif %}>BHAVNAGAR</option>
-                                <option value="BOTAD" {% if employee.coverage == 'BOTAD' %}selected{% endif %}>BOTAD</option>
-                                <option value="CHHOTA UDAIPUR" {% if employee.coverage == 'CHHOTA UDAIPUR' %}selected{% endif %}>CHHOTA UDAIPUR</option>
-                                <option value="DAHOD" {% if employee.coverage == 'DAHOD' %}selected{% endif %}>DAHOD</option>
-                                <option value="DANG" {% if employee.coverage == 'DANG' %}selected{% endif %}>DANG</option>
-                                <option value="DEVBHOOMI DWARKA" {% if employee.coverage == 'DEVBHOOMI DWARKA' %}selected{% endif %}>DEVBHOOMI DWARKA</option>
-                                <option value="GANDHINAGAR" {% if employee.coverage == 'GANDHINAGAR' %}selected{% endif %}>GANDHINAGAR</option>
-                                <option value="GIR SOMNATH" {% if employee.coverage == 'GIR SOMNATH' %}selected{% endif %}>GIR SOMNATH</option>
-                                <option value="JAMNAGAR" {% if employee.coverage == 'JAMNAGAR' %}selected{% endif %}>JAMNAGAR</option>
-                                <option value="JUNAGADH" {% if employee.coverage == 'JUNAGADH' %}selected{% endif %}>JUNAGADH</option>
-                                <option value="KHEDA" {% if employee.coverage == 'KHEDA' %}selected{% endif %}>KHEDA</option>
-                                <option value="KUTCH" {% if employee.coverage == 'KUTCH' %}selected{% endif %}>KUTCH</option>
-                                <option value="MAHISAGAR" {% if employee.coverage == 'MAHISAGAR' %}selected{% endif %}>MAHISAGAR</option>
-                                <option value="MEHSANA" {% if employee.coverage == 'MEHSANA' %}selected{% endif %}>MEHSANA</option>
-                                <option value="MORBI" {% if employee.coverage == 'MORBI' %}selected{% endif %}>MORBI</option>
-                                <option value="NARMADA" {% if employee.coverage == 'NARMADA' %}selected{% endif %}>NARMADA</option>
-                                <option value="NAVSARI" {% if employee.coverage == 'NAVSARI' %}selected{% endif %}>NAVSARI</option>
-                                <option value="PANCHMAHAL" {% if employee.coverage == 'PANCHMAHAL' %}selected{% endif %}>PANCHMAHAL</option>
-                                <option value="PATAN" {% if employee.coverage == 'PATAN' %}selected{% endif %}>PATAN</option>
-                                <option value="PORBANDAR" {% if employee.coverage == 'PORBANDAR' %}selected{% endif %}>PORBANDAR</option>
-                                <option value="RAJKOT" {% if employee.coverage == 'RAJKOT' %}selected{% endif %}>RAJKOT</option>
-                                <option value="SABARKANTHA" {% if employee.coverage == 'SABARKANTHA' %}selected{% endif %}>SABARKANTHA</option>
-                                <option value="SURAT" {% if employee.coverage == 'SURAT' %}selected{% endif %}>SURAT</option>
-                                <option value="SURENDRANAGAR" {% if employee.coverage == 'SURENDRANAGAR' %}selected{% endif %}>SURENDRANAGAR</option>
-                                <option value="TAPI" {% if employee.coverage == 'TAPI' %}selected{% endif %}>TAPI</option>
-                                <option value="VADODARA" {% if employee.coverage == 'VADODARA' %}selected{% endif %}>VADODARA</option>
-                                <option value="VALSAD" {% if employee.coverage == 'VALSAD' %}selected{% endif %}>VALSAD</option>
-                                <option value="All Gujarat" {% if employee.coverage == 'All Gujarat' %}selected{% endif %}>All Gujarat</option>
-                            </select>
+                            <label>Coverage Range</label>
+                            <input type="text" name="coverage" placeholder="Enter coverage area" required class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
