@@ -58,6 +58,7 @@ $(document).ready(function() {
                         <a href="{% url 'admin_verify_documents' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/admin_verify_documents' %}active{% endif %}">Verify Documents</a>
                         <a href="{% url 'admin_verify_contracts' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/admin_verify_contracts' %}active{% endif %}">Verify Contracts</a> <!-- Add this line -->
                         <a href="{% url 'admin_download_zip' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/admin_download_zip' %}active{% endif %}">Download Employee Documents</a>
+                        <a href="{% url 'change_employee_status' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/change_employee_status' %}active{% endif %}">Employee Status</a>
 
                         <a href="/logout" class="list-group-item list-group-item-warning list-group-item-action">Logout</a>
                     </div>
