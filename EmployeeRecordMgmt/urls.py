@@ -52,4 +52,4 @@ urlpatterns = [
     path('employee_status_management/', employee_status_management, name='employee_status_management'),
 
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
