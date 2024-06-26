@@ -1,0 +1,73 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange;">Employee Status Management</h5>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Change Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.id }}</td>
+                        <td>{{ employee.user.first_name }}</td>
+                        <td>{{ employee.user.last_name }}</td>
+                        <td>{{ employee.user.email }}</td>
+                        <td>{{ employee.status }}</td>
+                        <td>
+                            <select class="form-control status-dropdown" data-employee-id="{{ employee.id }}">
+                                <option value="PENDING" {% if employee.status == 'PENDING' %}selected{% endif %}>Pending</option>
+                                <option value="DOC_PENDING" {% if employee.status == 'DOC_PENDING' %}selected{% endif %}>Document Pending</option>
+                                <option value="DOC_VERIFIED" {% if employee.status == 'DOC_VERIFIED' %}selected{% endif %}>Document Verified</option>
+                                <option value="CONTRACT_PENDING" {% if employee.status == 'CONTRACT_PENDING' %}selected{% endif %}>Contract Pending</option>
+                                <option value="PRINT_PENDING" {% if employee.status == 'PRINT_PENDING' %}selected{% endif %}>Print Pending</option>
+
+                                <option value="FINALIZED" {% if employee.status == 'FINALIZED' %}selected{% endif %}>Finalized</option>
+                            </select>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.status-dropdown').forEach(function(dropdown) {
+        dropdown.addEventListener('change', function() {
+            var employeeId = this.getAttribute('data-employee-id');
+            var newStatus = this.value;
+
+            fetch("{% url 'change_employee_status' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({
+                    employee_id: employeeId,
+                    status: newStatus
+                })
+            }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Status updated successfully.');
+                    location.reload(); // Refresh the page to reflect the status change
+                } else {
+                    alert('Failed to update status: ' + (data.error || 'Unknown error'));
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
